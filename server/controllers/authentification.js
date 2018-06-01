@@ -8,7 +8,14 @@ const tokenForUser = user => {
   return jwt.encode({ sub: user.id, iat: timestamp }, config.SECRET_KEY);
 };
 
-module.exports = (req, res, next) => {
+/**
+ * [signup description]
+ * @param  {Object}   req  [request object]
+ * @param  {Object}   res  [response object]
+ * @param  {Function} next [handles errors]
+ * @return {Object}        [token]
+ */
+module.exports.signup = (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password)
     return res.status(422).send("Please enter email and password");
