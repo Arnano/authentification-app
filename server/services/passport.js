@@ -13,10 +13,10 @@ const localLoginOptions = {
 }
 
 /**
- * [ setup for local strategy (email and password)
+ * [setup for local strategy (email and password)
  * verify this username and password,
  * call done with the user if it is the correct combination
- * otherwise call done with false ]
+ * otherwise call done with false]
  * @type {LocalStrategy}
  */
 const localLogin = new LocalStrategy(localLoginOptions, (email, password, done) => {

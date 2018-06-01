@@ -9,8 +9,12 @@ const userSchema = new Schema({
   password: String
 });
 
-// On save hook encrypt the password
-// Run this function before the user gets saved
+/**
+ * [On save hook encrypt the password
+ * Run this function before the user gets saved]
+ * @param  {Function} next [handles error cases]
+ * @return {String}        [hashed password]
+ */
 userSchema.pre("save", function(next) {
   const user = this;
   // generate a slat then run callback
@@ -26,6 +30,12 @@ userSchema.pre("save", function(next) {
   });
 });
 
+/**
+ * [Compare the entered password with the stored on]
+ * @param  {String}   candidatePassword [description]
+ * @param  {Function} callback          [callback to run after comparison]
+ * @return {Function}                   [runs the callback]
+ */
 userSchema.methods.comparePassword = function(candidatePassword, callback) {
   const user = this;
 

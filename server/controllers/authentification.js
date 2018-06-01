@@ -9,7 +9,7 @@ const tokenForUser = user => {
 };
 
 /**
- * [signup description]
+ * [handles signup for authentification]
  * @param  {Object}   req  [request object]
  * @param  {Object}   res  [response object]
  * @param  {Function} next [handles errors]
@@ -31,3 +31,7 @@ module.exports.signup = (req, res, next) => {
     });
   });
 };
+
+module.exports.signin = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+}
