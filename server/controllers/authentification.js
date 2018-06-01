@@ -1,4 +1,12 @@
+const jwt = require("jwt-simple");
+
 const User = require("../models/user");
+const config = require("../config");
+
+const tokenForUser = user => {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.SECRET_KEY);
+};
 
 module.exports = (req, res, next) => {
   const { email, password } = req.body;
@@ -12,7 +20,7 @@ module.exports = (req, res, next) => {
     const user = new User({ email, password });
     user.save(err => {
       if (err) return next(err);
-      res.json({ success: true });
+      res.json({ token: tokenForUser(user) });
     });
   });
 };
