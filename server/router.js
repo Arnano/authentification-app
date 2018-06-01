@@ -1,5 +1,5 @@
+const AuthController = require("./controllers/authentification");
+
 module.exports = app => {
-  app.get("/", (req, res, next) => {
-    res.send({ server: "working" });
-  });
+  app.post("/signup", AuthController);
 };

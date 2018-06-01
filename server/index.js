@@ -3,9 +3,13 @@ const http = require("http");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const router = require("./router");
+const mongoose = require("mongoose");
 
 const app = express();
 const PORT = process.env.PORT || 4222;
+
+// Database setup
+mongoose.connect("mongodb://localhost:27017/auth");
 
 // App setup
 app.use(morgan("combined"));
