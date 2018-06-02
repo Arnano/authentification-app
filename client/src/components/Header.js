@@ -9,7 +9,7 @@ export default class Header extends Component {
         <Link to="/signup"> Sign up </Link>
         <Link to="/signin"> Sign in </Link>
         <Link to="/signout"> Sign out </Link>
-        <Link to="/signout"> Feature page </Link>
+        <Link to="/feature"> Feature page </Link>
       </div>
     );
   }
