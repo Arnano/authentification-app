@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import withAuth from "./withAuth";
 
 class Feature extends Component {
   render() {
@@ -10,4 +11,4 @@ class Feature extends Component {
   }
 }
 
-export default Feature;
+export default withAuth(Feature);

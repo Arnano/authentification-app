@@ -12,7 +12,7 @@ class Signup extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  onFormSubmit(formProps) {
+  onFormSubmit(formProps, callback) {
     this.props.signup(formProps, () => {
       this.props.history.push("/feature");
     });
@@ -48,7 +48,7 @@ class Signup extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({ errorMessage: auth.errorMessage });
+const mapStateToProps = state => ({ errorMessage: state.auth.errorMessage });
 
 export default compose(
   connect(mapStateToProps, { signup }),
